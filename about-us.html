@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - TravelGenie</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --white: #ffffff;
+            --dark-color: #1f2937;
+            --gray-600: #6b7280;
+            --gray-200: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 100vh;
+            color: var(--white);
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .section-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fbbf24;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 2rem;
+                margin: 0 1rem 2rem;
+            }
+
+            .main-content {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-plane"></i>
+                TravelGenie
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html">Terms of Service</a></li>
+                <li><a href="careers.html">Careers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">About TravelGenie</h1>
+            <p class="page-subtitle">
+                Your AI-powered travel companion, making dream trips a reality through intelligent planning and personalized recommendations.
+            </p>
+        </div>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-magic"></i> Our Mission
+            </h2>
+            <p class="section-text">
+                At TravelGenie, we believe that every journey should be extraordinary. Our mission is to democratize travel planning by harnessing the power of artificial intelligence to create personalized, unforgettable travel experiences for everyone.
+            </p>
+            <p class="section-text">
+                We understand that planning the perfect trip can be overwhelming. With countless destinations, accommodations, activities, and logistics to consider, many travelers feel lost in the process. That's where TravelGenie comes in—we transform the complexity of travel planning into a simple, enjoyable experience.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-lightbulb"></i> How It Works
+            </h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="feature-title">AI-Powered Recommendations</h3>
+                    <p>Our advanced AI analyzes your preferences, budget, and travel style to suggest perfect destinations and experiences.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3 class="feature-title">Smart Itinerary Planning</h3>
+                    <p>Get optimized daily schedules that maximize your time and minimize travel stress.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="feature-title">Budget Optimization</h3>
+                    <p>Find the best deals and allocate your budget wisely across accommodations, activities, and dining.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-heart"></i> Our Story
+            </h2>
+            <p class="section-text">
+                Founded in 2025, TravelGenie was born from a simple idea: travel planning should be as exciting as the trip itself. Our team of travel enthusiasts, technology experts, and AI researchers came together with a shared vision of making world-class travel accessible to everyone.
+            </p>
+            <p class="section-text">
+                We've helped thousands of travelers discover hidden gems, optimize their budgets, and create memories that last a lifetime. From solo adventurers to family vacations, business trips to romantic getaways—TravelGenie adapts to every traveler's unique needs.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-users"></i> Join Our Community
+            </h2>
+            <p class="section-text">
+                Become part of a growing community of smart travelers who trust TravelGenie for their adventures. Share your experiences, get inspired by others, and let us help you plan your next incredible journey.
+            </p>
+            <p class="section-text">
+                Ready to start planning? <a href="index.html" style="color: #fbbf24; font-weight: 600;">Create your first trip with TravelGenie today!</a>
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">
+            &copy; 2025 TravelGenie. All rights reserved. | 
+            <a href="privacy-policy.html">Privacy Policy</a> | 
+            <a href="terms-of-service.html">Terms of Service</a>
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scrolling animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add entrance animation to sections
+            const sections = document.querySelectorAll('.content-section');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+            
+            console.log('✈️ About Us page loaded successfully!');
+        });
+    </script>
+</body>
+</html>

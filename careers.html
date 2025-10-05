@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - TravelGenie</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --white: #ffffff;
+            --dark-color: #1f2937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 100vh;
+            color: var(--white);
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .job-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .job-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #fbbf24;
+        }
+
+        .job-department {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .job-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .job-requirements {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-requirements li {
+            padding: 0.25rem 0;
+            font-size: 0.9rem;
+        }
+
+        .job-requirements li:before {
+            content: "•";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .apply-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fbbf24;
+        }
+
+        .benefit-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-description {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .cta-section {
+            background: rgba(255, 255, 255, 0.15);
+            text-align: center;
+            padding: 3rem;
+            border-radius: 16px;
+        }
+
+        .cta-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 2rem;
+                margin: 0 1rem 2rem;
+            }
+
+            .main-content {
+                padding: 0 1rem;
+            }
+
+            .jobs-grid, .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-plane"></i>
+                TravelGenie
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html">Terms of Service</a></li>
+                <li><a href="careers.html">Careers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Join Our Team</h1>
+            <p class="page-subtitle">
+                Help us revolutionize travel planning with AI. Build the future of travel technology with passionate innovators.
+            </p>
+        </div>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-rocket"></i>
+                Why Work at TravelGenie?
+            </h2>
+            <p class="section-text">
+                At TravelGenie, we're not just building a product—we're creating the future of travel. Join a team of passionate individuals who believe technology can make the world more accessible and travel more meaningful.
+            </p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="benefit-title">Remote-First Culture</h3>
+                    <p class="benefit-description">Work from anywhere in the world with flexible hours and unlimited PTO</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="benefit-title">Learning & Growth</h3>
+                    <p class="benefit-description">$5,000 annual learning budget and conference attendance support</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="benefit-title">Health & Wellness</h3>
+                    <p class="benefit-description">Comprehensive health insurance and mental wellness programs</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="benefit-title">Travel Perks</h3>
+                    <p class="benefit-description">Annual travel stipend and team retreats to amazing destinations</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-briefcase"></i>
+                Open Positions
+            </h2>
+            
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <h3 class="job-title">Senior AI Engineer</h3>
+                    <p class="job-department">Engineering • San Francisco, CA (Remote)</p>
+                    <p class="job-description">
+                        Lead the development of our AI recommendation engine. Work with machine learning models, natural language processing, and large-scale data systems.
+                    </p>
+                    <ul class="job-requirements">
+                        <li>5+ years experience in machine learning</li>
+                        <li>Python, TensorFlow, or PyTorch expertise</li>
+                        <li>Experience with recommendation systems</li>
+                        <li>PhD in CS/ML preferred</li>
+                    </ul>
+                    <button class="apply-btn" onclick="applyForJob('Senior AI Engineer')">
+                        <i class="fas fa-paper-plane"></i> Apply Now
+                    </button>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">Product Designer</h3>
+                    <p class="job-department">Design • New York, NY (Remote)</p>
+                    <p class="job-description">
+                        Design beautiful, intuitive interfaces that make travel planning delightful. Lead user research and create design systems.
+                    </p>
+                    <ul class="job-requirements">
+                        <li>4+ years product design experience</li>
+                        <li>Proficiency in Figma and design tools</li>
+                        <li>Experience with mobile-first design</li>
+                        <li>Portfolio showcasing travel/lifestyle apps</li>
+                    </ul>
+                    <button class="apply-btn" onclick="applyForJob('Product Designer')">
+                        <i class="fas fa-paper-plane"></i> Apply Now
+                    </button>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">Full-Stack Developer</h3>
+                    <p class="job-department">Engineering • Austin, TX (Remote)</p>
+                    <p class="job-description">
+                        Build scalable web applications using modern technologies. Work across the entire stack from database to user interface.
+                    </p>
+                    <ul class="job-requirements">
+                        <li>3+ years full-stack development</li>
+                        <li>JavaScript, React, Node.js experience</li>
+                        <li>Database design and optimization</li>
+                        <li>Cloud platforms (AWS/GCP) knowledge</li>
+                    </ul>
+                    <button class="apply-btn" onclick="applyForJob('Full-Stack Developer')">
+                        <i class="fas fa-paper-plane"></i> Apply Now
+                    </button>
+                </div>
+
+                <div class="job-card">
+                    <h3 class="job-title">Travel Content Specialist</h3>
+                    <p class="job-department">Content • Remote</p>
+                    <p class="job-description">
+                        Create engaging travel content and destination guides. Research and curate amazing travel experiences worldwide.
+                    </p>
+                    <ul class="job-requirements">
+                        <li>Travel industry experience preferred</li>
+                        <li>Excellent writing and research skills</li>
+                        <li>Knowledge of global destinations</li>
+                        <li>Social media and content marketing</li>
+                    </ul>
+                    <button class="apply-btn" onclick="applyForJob('Travel Content Specialist')">
+                        <i class="fas fa-paper-plane"></i> Apply Now
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2 class="cta-title">Don't See Your Role?</h2>
+            <p class="cta-text">
+                We're always looking for exceptional talent. Send us your resume and tell us how you'd like to contribute to the future of travel.
+            </p>
+            <a href="mailto:careers@travelgenie.com" class="cta-btn">
+                <i class="fas fa-envelope"></i> Send Your Resume
+            </a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">
+            &copy; 2025 TravelGenie. All rights reserved. | 
+            <a href="about-us.html">About Us</a> | 
+            <a href="privacy-policy.html">Privacy Policy</a> | 
+            <a href="terms-of-service.html">Terms of Service</a>
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate job cards on scroll
+            const jobCards = document.querySelectorAll('.job-card');
+            const benefitCards = document.querySelectorAll('.benefit-card');
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            [...jobCards, ...benefitCards].forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            console.log('💼 Careers page loaded successfully!');
+        });
+
+        function applyForJob(jobTitle) {
+            // Simulate job application
+            alert(`Thank you for your interest in the ${jobTitle} position! In a real implementation, this would redirect to an application form or email.`);
+            
+            // In real implementation, you would redirect to:
+            // window.location.href = `mailto:careers@travelgenie.com?subject=Application for ${jobTitle}`;
+        }
+
+        // Add some interactive effects
+        document.querySelectorAll('.job-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - TravelGenie</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --white: #ffffff;
+            --dark-color: #1f2937;
+            --gray-600: #6b7280;
+            --gray-200: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 100vh;
+            color: var(--white);
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Search Box */
+        .search-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            color: var(--white);
+            font-size: 1.1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #fbbf24;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.2rem;
+        }
+
+        /* Help Categories */
+        .help-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .help-category {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .help-category:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            color: #fbbf24;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .category-description {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-topics {
+            list-style: none;
+            padding: 0;
+        }
+
+        .category-topics li {
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .category-topics li:before {
+            content: "→";
+            margin-right: 0.5rem;
+            color: #10b981;
+        }
+
+        /* Popular Articles */
+        .popular-articles {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .articles-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .article-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .article-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(10px);
+        }
+
+        .article-icon {
+            font-size: 1.5rem;
+            color: #10b981;
+            width: 40px;
+            text-align: center;
+        }
+
+        .article-content {
+            flex: 1;
+        }
+
+        .article-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .article-summary {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Contact Support */
+        .contact-support {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .support-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .support-option {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .support-option:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .support-icon {
+            font-size: 2rem;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .support-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .support-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .help-categories,
+            .support-options {
+                grid-template-columns: 1fr;
+            }
+
+            .search-section,
+            .popular-articles,
+            .contact-support {
+                padding: 2rem;
+                margin: 0 1rem 2rem;
+            }
+
+            .main-content {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-plane"></i>
+                TravelGenie
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+                <li><a href="help-center.html">Help Center</a></li>
+                <li><a href="travel-tips.html">Travel Tips</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Help Center</h1>
+            <p class="page-subtitle">
+                Find answers, get support, and learn how to make the most of your TravelGenie experience.
+            </p>
+        </div>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <h2 class="section-title">
+                <i class="fas fa-search"></i>
+                How can we help you today?
+            </h2>
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search for help topics, features, or questions..." id="helpSearch">
+            </div>
+        </section>
+
+        <!-- Help Categories -->
+        <section class="help-categories">
+            <div class="help-category" onclick="openCategory('getting-started')">
+                <div class="category-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3 class="category-title">Getting Started</h3>
+                <p class="category-description">
+                    New to TravelGenie? Learn the basics and start planning your first trip.
+                </p>
+                <ul class="category-topics">
+                    <li>Creating your account</li>
+                    <li>Setting up your profile</li>
+                    <li>Your first travel plan</li>
+                    <li>Understanding AI recommendations</li>
+                </ul>
+            </div>
+
+            <div class="help-category" onclick="openCategory('account-settings')">
+                <div class="category-icon">
+                    <i class="fas fa-user-cog"></i>
+                </div>
+                <h3 class="category-title">Account & Settings</h3>
+                <p class="category-description">
+                    Manage your account, preferences, and privacy settings.
+                </p>
+                <ul class="category-topics">
+                    <li>Update profile information</li>
+                    <li>Privacy settings</li>
+                    <li>Password and security</li>
+                    <li>Notification preferences</li>
+                </ul>
+            </div>
+
+            <div class="help-category" onclick="openCategory('planning-tools')">
+                <div class="category-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h3 class="category-title">Planning Tools</h3>
+                <p class="category-description">
+                    Master our AI-powered planning features and tools.
+                </p>
+                <ul class="category-topics">
+                    <li>Using the AI planner</li>
+                    <li>Budget optimization</li>
+                    <li>Itinerary customization</li>
+                    <li>Sharing and collaboration</li>
+                </ul>
+            </div>
+
+            <div class="help-category" onclick="openCategory('booking-travel')">
+                <div class="category-icon">
+                    <i class="fas fa-ticket-alt"></i>
+                </div>
+                <h3 class="category-title">Booking & Travel</h3>
+                <p class="category-description">
+                    Information about bookings, reservations, and travel logistics.
+                </p>
+                <ul class="category-topics">
+                    <li>Partner booking platforms</li>
+                    <li>Price tracking</li>
+                    <li>Travel documents</li>
+                    <li>Changes and cancellations</li>
+                </ul>
+            </div>
+
+            <div class="help-category" onclick="openCategory('troubleshooting')">
+                <div class="category-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3 class="category-title">Troubleshooting</h3>
+                <p class="category-description">
+                    Having issues? Find solutions to common problems here.
+                </p>
+                <ul class="category-topics">
+                    <li>Login problems</li>
+                    <li>Performance issues</li>
+                    <li>Feature not working</li>
+                    <li>Browser compatibility</li>
+                </ul>
+            </div>
+
+            <div class="help-category" onclick="openCategory('mobile-app')">
+                <div class="category-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="category-title">Mobile App</h3>
+                <p class="category-description">
+                    Get help with the TravelGenie mobile application.
+                </p>
+                <ul class="category-topics">
+                    <li>Download and installation</li>
+                    <li>Mobile features</li>
+                    <li>Offline functionality</li>
+                    <li>App updates</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Popular Articles -->
+        <section class="popular-articles">
+            <h2 class="section-title">
+                <i class="fas fa-fire"></i>
+                Popular Articles
+            </h2>
+            <ul class="articles-list">
+                <li class="article-item" onclick="openArticle('ai-recommendations')">
+                    <div class="article-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-title">How do AI recommendations work?</div>
+                        <div class="article-summary">Learn about our machine learning algorithms and how they create personalized travel suggestions.</div>
+                    </div>
+                </li>
+                <li class="article-item" onclick="openArticle('budget-planning')">
+                    <div class="article-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-title">Creating accurate budget estimates</div>
+                        <div class="article-summary">Tips for setting realistic budgets and understanding cost breakdowns for your trips.</div>
+                    </div>
+                </li>
+                <li class="article-item" onclick="openArticle('sharing-plans')">
+                    <div class="article-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-title">Sharing travel plans with friends</div>
+                        <div class="article-summary">Collaborate on trip planning and share your itineraries with travel companions.</div>
+                    </div>
+                </li>
+                <li class="article-item" onclick="openArticle('safety-tips')">
+                    <div class="article-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-title">Travel safety and security</div>
+                        <div class="article-summary">Essential safety tips and how TravelGenie helps you stay informed about travel conditions.</div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Contact Support -->
+        <section class="contact-support">
+            <h2 class="section-title">
+                <i class="fas fa-headset"></i>
+                Still Need Help?
+            </h2>
+            <p>Our support team is here to assist you with any questions or issues you may have.</p>
+            
+            <div class="support-options">
+                <div class="support-option" onclick="contactSupport('chat')">
+                    <div class="support-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="support-title">Live Chat</div>
+                    <div class="support-description">Get instant help from our support team</div>
+                </div>
+                <div class="support-option" onclick="contactSupport('email')">
+                    <div class="support-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="support-title">Email Support</div>
+                    <div class="support-description">Send us a detailed message</div>
+                </div>
+                <div class="support-option" onclick="contactSupport('phone')">
+                    <div class="support-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="support-title">Phone Support</div>
+                    <div class="support-description">Speak directly with our team</div>
+                </div>
+                <div class="support-option" onclick="contactSupport('community')">
+                    <div class="support-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="support-title">Community</div>
+                    <div class="support-description">Connect with other travelers</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">
+            &copy; 2025 TravelGenie. All rights reserved. | 
+            <a href="about-us.html">About Us</a> | 
+            <a href="privacy-policy.html">Privacy Policy</a> | 
+            <a href="terms-of-service.html">Terms of Service</a>
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize search functionality
+            const searchInput = document.getElementById('helpSearch');
+            searchInput.addEventListener('input', handleSearch);
+
+            // Add entrance animations
+            const sections = document.querySelectorAll('.search-section, .help-category, .popular-articles, .contact-support');
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            console.log('🆘 Help Center page loaded successfully!');
+        });
+
+        // Search functionality
+        function handleSearch(e) {
+            const query = e.target.value.toLowerCase();
+            console.log('Searching for:', query);
+            
+            // In a real implementation, this would search through help articles
+            if (query.length > 2) {
+                // Simulate search suggestions
+                console.log('Showing search results for:', query);
+            }
+        }
+
+        // Category navigation
+        function openCategory(category) {
+            console.log('Opening category:', category);
+            alert(`In a real implementation, this would open the ${category} section with detailed articles and guides.`);
+        }
+
+        // Article navigation
+        function openArticle(article) {
+            console.log('Opening article:', article);
+            alert(`In a real implementation, this would open the detailed article about ${article}.`);
+        }
+
+        // Contact support
+        function contactSupport(method) {
+            console.log('Contact support via:', method);
+            
+            switch(method) {
+                case 'chat':
+                    alert('Live chat would open here. Available 24/7 for immediate assistance.');
+                    break;
+                case 'email':
+                    window.location.href = 'contact-us.html';
+                    break;
+                case 'phone':
+                    alert('Phone support: 1-800-TRAVEL-AI (1-800-872-8352)\nHours: Mon-Fri, 9 AM - 6 PM EST');
+                    break;
+                case 'community':
+                    alert('Community forum would open here. Connect with other TravelGenie users.');
+                    break;
+            }
+        }
+
+        // Add hover effects
+        document.querySelectorAll('.help-category, .article-item, .support-option').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

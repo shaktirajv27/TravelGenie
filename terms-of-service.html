@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - TravelGenie</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --white: #ffffff;
+            --dark-color: #1f2937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 100vh;
+            color: var(--white);
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .effective-date {
+            font-size: 1rem;
+            opacity: 0.8;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .terms-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .terms-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .terms-list li:before {
+            content: counter(terms-counter);
+            counter-increment: terms-counter;
+            position: absolute;
+            left: 0;
+            top: 0.8rem;
+            background: var(--primary-color);
+            color: white;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .terms-section {
+            counter-reset: terms-counter;
+        }
+
+        .important-notice {
+            background: rgba(239, 68, 68, 0.2);
+            border-left: 4px solid #ef4444;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .info-box {
+            background: rgba(59, 130, 246, 0.2);
+            border-left: 4px solid #3b82f6;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 2rem;
+                margin: 0 1rem 2rem;
+            }
+
+            .main-content {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-plane"></i>
+                TravelGenie
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html">Terms of Service</a></li>
+                <li><a href="careers.html">Careers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Terms of Service</h1>
+            <div class="effective-date">
+                <i class="fas fa-gavel"></i>
+                Effective Date: September 7, 2025
+            </div>
+        </div>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-handshake"></i>
+                Agreement to Terms
+            </h2>
+            <p class="section-text">
+                Welcome to TravelGenie! By accessing or using our AI-powered travel planning service, you agree to be bound by these Terms of Service and our Privacy Policy. If you disagree with any part of these terms, please do not use our service.
+            </p>
+            <div class="important-notice">
+                <strong>Important:</strong> These terms constitute a legally binding agreement between you and TravelGenie. Please read them carefully before using our service.
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-user-check"></i>
+                Account Registration
+            </h2>
+            <div class="terms-section">
+                <ul class="terms-list">
+                    <li><strong>Eligibility:</strong> You must be at least 18 years old to create an account</li>
+                    <li><strong>Accurate Information:</strong> Provide truthful and current information during registration</li>
+                    <li><strong>Account Security:</strong> Maintain the confidentiality of your login credentials</li>
+                    <li><strong>Responsibility:</strong> You are responsible for all activities under your account</li>
+                    <li><strong>Notification:</strong> Promptly notify us of any unauthorized account access</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-magic"></i>
+                Service Description
+            </h2>
+            <p class="section-text">
+                TravelGenie provides AI-powered travel planning services including:
+            </p>
+            <div class="terms-section">
+                <ul class="terms-list">
+                    <li>Personalized travel recommendations and itinerary planning</li>
+                    <li>Budget optimization and cost estimation tools</li>
+                    <li>Destination information and travel insights</li>
+                    <li>Integration with third-party booking platforms</li>
+                    <li>Travel planning collaboration and sharing features</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <strong>Service Availability:</strong> While we strive for 99.9% uptime, we cannot guarantee uninterrupted service and may perform maintenance as needed.
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-rules"></i>
+                Acceptable Use Policy
+            </h2>
+            <p class="section-text">
+                To ensure a safe and positive experience for all users, you agree not to:
+            </p>
+            <div class="terms-section">
+                <ul class="terms-list">
+                    <li>Use the service for any illegal or unauthorized purposes</li>
+                    <li>Attempt to gain unauthorized access to our systems</li>
+                    <li>Upload malicious code, viruses, or harmful content</li>
+                    <li>Harass, abuse, or harm other users</li>
+                    <li>Violate any local, state, or international laws</li>
+                    <li>Interfere with or disrupt the service or servers</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-shield-alt"></i>
+                Disclaimers and Limitations
+            </h2>
+            <p class="section-text">
+                While we strive to provide accurate and helpful travel information:
+            </p>
+            <div class="important-notice">
+                <strong>Travel Responsibility:</strong> TravelGenie provides recommendations only. You are responsible for verifying all travel information, including visa requirements, health advisories, and booking details.
+            </div>
+            <div class="terms-section">
+                <ul class="terms-list">
+                    <li>We do not guarantee the accuracy of all travel information</li>
+                    <li>Third-party bookings are subject to their terms and conditions</li>
+                    <li>Travel conditions can change rapidly due to various factors</li>
+                    <li>We are not liable for travel disruptions or cancellations</li>
+                    <li>AI recommendations are based on available data and algorithms</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-copyright"></i>
+                Intellectual Property
+            </h2>
+            <p class="section-text">
+                All content, features, and functionality of TravelGenie are owned by us and protected by copyright, trademark, and other intellectual property laws.
+            </p>
+            <div class="terms-section">
+                <ul class="terms-list">
+                    <li>You may not reproduce, distribute, or create derivative works</li>
+                    <li>User-generated content remains your property</li>
+                    <li>You grant us a license to use your content to improve our service</li>
+                    <li>Respect third-party intellectual property rights</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-ban"></i>
+                Termination
+            </h2>
+            <p class="section-text">
+                Either party may terminate this agreement:
+            </p>
+            <div class="terms-section">
+                <ul class="terms-list">
+                    <li>You may delete your account at any time</li>
+                    <li>We may suspend or terminate accounts for terms violations</li>
+                    <li>Termination does not affect previously incurred obligations</li>
+                    <li>Upon termination, your access to the service will cease</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-phone"></i>
+                Contact Information
+            </h2>
+            <p class="section-text">
+                Questions about these Terms of Service? Contact us:
+            </p>
+            <div class="info-box">
+                <p><strong>Email:</strong> legal@travelgenie.com</p>
+                <p><strong>Address:</strong> TravelGenie Legal Team, 123 Innovation Street, Tech City, TC 12345</p>
+                <p><strong>Phone:</strong> 1-800-TRAVEL-AI (1-800-872-8352)</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">
+            &copy; 2025 TravelGenie. All rights reserved. | 
+            <a href="about-us.html">About Us</a> | 
+            <a href="privacy-policy.html">Privacy Policy</a>
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth animation for content sections
+            const sections = document.querySelectorAll('.content-section');
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Highlight current page in navigation
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.style.background = 'rgba(255, 255, 255, 0.2)';
+                }
+            });
+
+            console.log('📋 Terms of Service page loaded successfully!');
+        });
+    </script>
+</body>
+</html>

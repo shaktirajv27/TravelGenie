@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - TravelGenie</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --white: #ffffff;
+            --dark-color: #1f2937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 100vh;
+            color: var(--white);
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Search Section */
+        .search-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            color: var(--white);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #fbbf24;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.2rem;
+        }
+
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .category-tab {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            color: var(--white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .category-tab.active,
+        .category-tab:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #fbbf24;
+            transform: translateY(-2px);
+        }
+
+        /* FAQ Sections */
+        .faq-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .faq-section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--white);
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            opacity: 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-answer.active {
+            max-height: 300px;
+            padding: 1.5rem;
+            opacity: 1;
+        }
+
+        .faq-answer p {
+            line-height: 1.7;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .faq-answer li {
+            padding: 0.25rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .faq-answer li:before {
+            content: "•";
+            color: #10b981;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+            color: #fbbf24;
+        }
+
+        .faq-icon.rotated {
+            transform: rotate(180deg);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .contact-description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-options {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border: none;
+            border-radius: 8px;
+            color: var(--white);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .faq-section,
+            .search-section,
+            .contact-section {
+                padding: 2rem;
+                margin: 0 1rem 2rem;
+            }
+
+            .main-content {
+                padding: 0 1rem;
+            }
+
+            .contact-options {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-plane"></i>
+                TravelGenie
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+                <li><a href="help-center.html">Help Center</a></li>
+                <li><a href="travel-tips.html">Travel Tips</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Frequently Asked Questions</h1>
+            <p class="page-subtitle">
+                Find quick answers to common questions about TravelGenie and get the help you need to plan amazing trips.
+            </p>
+        </div>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search for answers..." id="faqSearch">
+            </div>
+        </section>
+
+        <!-- Category Tabs -->
+        <div class="category-tabs">
+            <div class="category-tab active" data-category="all">All Questions</div>
+            <div class="category-tab" data-category="getting-started">Getting Started</div>
+            <div class="category-tab" data-category="account">Account</div>
+            <div class="category-tab" data-category="planning">Planning</div>
+            <div class="category-tab" data-category="booking">Booking</div>
+            <div class="category-tab" data-category="technical">Technical</div>
+        </div>
+
+        <!-- Getting Started FAQs -->
+        <section class="faq-section" data-category="getting-started">
+            <h2 class="faq-section-title">
+                <i class="fas fa-rocket"></i>
+                Getting Started
+            </h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What is TravelGenie and how does it work?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>TravelGenie is an AI-powered travel planning platform that creates personalized travel recommendations based on your preferences, budget, and travel style. Our advanced algorithms analyze thousands of destinations, activities, and accommodations to suggest the perfect trip for you.</p>
+                    <p>Simply tell us your travel preferences, and we'll generate a customized itinerary with recommendations for flights, hotels, restaurants, and activities.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do I need to create an account to use TravelGenie?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>While you can browse our platform without an account, creating a free account unlocks many benefits:</p>
+                    <ul>
+                        <li>Save and organize your travel plans</li>
+                        <li>Access personalized recommendations</li>
+                        <li>Share itineraries with friends and family</li>
+                        <li>Receive price alerts and travel updates</li>
+                        <li>Track your travel history and preferences</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Is TravelGenie free to use?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>TravelGenie offers both free and premium plans:</p>
+                    <ul>
+                        <li><strong>Free Plan:</strong> Basic AI recommendations, itinerary planning, and budget estimates</li>
+                        <li><strong>Premium Plan:</strong> Advanced customization, priority support, exclusive deals, and unlimited plan saves</li>
+                    </ul>
+                    <p>You can start with our free plan and upgrade anytime if you need additional features.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account FAQs -->
+        <section class="faq-section" data-category="account">
+            <h2 class="faq-section-title">
+                <i class="fas fa-user-circle"></i>
+                Account & Profile
+            </h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How do I update my profile information?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>To update your profile information:</p>
+                    <ul>
+                        <li>Log in to your TravelGenie account</li>
+                        <li>Click on your profile picture or name in the top right corner</li>
+                        <li>Select "Profile Settings" from the dropdown menu</li>
+                        <li>Update your information and click "Save Changes"</li>
+                    </ul>
+                    <p>Keep your profile updated to receive more personalized travel recommendations.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How do I change my password?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>To change your password:</p>
+                    <ul>
+                        <li>Go to Profile Settings</li>
+                        <li>Click on "Security" tab</li>
+                        <li>Enter your current password</li>
+                        <li>Enter and confirm your new password</li>
+                        <li>Click "Update Password"</li>
+                    </ul>
+                    <p>For security, we recommend using a strong password with at least 8 characters, including uppercase and lowercase letters, numbers, and symbols.</p>
+                </div>
+            </div>
+
+                           <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I delete my account?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can delete your TravelGenie account at any time:</p>
+                    <ul>
+                        <li>Go to Account Settings > Privacy & Security</li>
+                        <li>Scroll down to "Delete Account" section</li>
+                        <li>Click "Delete My Account" and confirm</li>
+                    </ul>
+                    <p><strong>Warning:</strong> This action is permanent and cannot be undone. All your saved travel plans, preferences, and data will be permanently removed.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Planning FAQs -->
+        <section class="faq-section" data-category="planning">
+            <h2 class="faq-section-title">
+                <i class="fas fa-map-marked-alt"></i>
+                Travel Planning
+            </h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How accurate are TravelGenie's recommendations?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our AI recommendations are based on:</p>
+                    <ul>
+                        <li>Real-time data from multiple travel sources</li>
+                        <li>User reviews and ratings from verified travelers</li>
+                        <li>Historical travel patterns and trends</li>
+                        <li>Your personal preferences and travel history</li>
+                    </ul>
+                    <p>While we strive for 95%+ accuracy, we always recommend verifying important details like visa requirements, weather conditions, and booking availability before making final decisions.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I customize the AI-generated itinerary?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! You have full control over your itinerary:</p>
+                    <ul>
+                        <li>Add, remove, or rearrange activities</li>
+                        <li>Adjust timing and duration of visits</li>
+                        <li>Change accommodation preferences</li>
+                        <li>Modify budget allocations</li>
+                        <li>Add personal notes and reminders</li>
+                    </ul>
+                    <p>The AI learns from your modifications to provide better recommendations for future trips.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How far in advance should I plan my trip?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>The ideal planning timeline depends on your destination:</p>
+                    <ul>
+                        <li><strong>Domestic trips:</strong> 2-8 weeks in advance</li>
+                        <li><strong>International trips:</strong> 2-6 months in advance</li>
+                        <li><strong>Peak season destinations:</strong> 6-12 months in advance</li>
+                        <li><strong>Last-minute trips:</strong> 1-2 weeks (limited options but possible deals)</li>
+                    </ul>
+                    <p>Early planning gives you access to better prices and availability, especially for popular destinations and peak travel times.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking FAQs -->
+        <section class="faq-section" data-category="booking">
+            <h2 class="faq-section-title">
+                <i class="fas fa-ticket-alt"></i>
+                Booking & Reservations
+            </h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I book directly through TravelGenie?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Currently, TravelGenie partners with trusted booking platforms to provide you with the best deals:</p>
+                    <ul>
+                        <li>We redirect you to verified booking partners</li>
+                        <li>All bookings are made directly with hotels, airlines, and activity providers</li>
+                        <li>We track prices and notify you of deals and price drops</li>
+                        <li>Integrated booking functionality is coming soon!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you offer price matching or guarantees?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>While TravelGenie doesn't directly handle bookings, we help you find the best prices by:</p>
+                    <ul>
+                        <li>Comparing prices across multiple platforms</li>
+                        <li>Setting up price alerts for your desired trips</li>
+                        <li>Showing historical price trends</li>
+                        <li>Recommending optimal booking times</li>
+                    </ul>
+                    <p>For price matching, you'll need to work directly with the booking platform or provider.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What if I need to cancel or change my bookings?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Since bookings are made through our partner platforms:</p>
+                    <ul>
+                        <li>Cancellation and change policies vary by provider</li>
+                        <li>Contact the booking platform or provider directly</li>
+                        <li>We recommend booking flexible rates when possible</li>
+                        <li>Consider travel insurance for added protection</li>
+                    </ul>
+                    <p>Always read the cancellation and change policies before booking to understand your options.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical FAQs -->
+        <section class="faq-section" data-category="technical">
+            <h2 class="faq-section-title">
+                <i class="fas fa-cog"></i>
+                Technical Support
+            </h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Which browsers are supported by TravelGenie?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>TravelGenie works best on modern browsers:</p>
+                    <ul>
+                        <li><strong>Recommended:</strong> Chrome (latest), Firefox (latest), Safari (latest), Edge (latest)</li>
+                        <li><strong>Mobile:</strong> Chrome Mobile, Safari Mobile, Samsung Internet</li>
+                        <li><strong>Minimum requirements:</strong> Chrome 90+, Firefox 88+, Safari 14+, Edge 90+</li>
+                    </ul>
+                    <p>For the best experience, please keep your browser updated to the latest version.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Why is the website loading slowly?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Slow loading can be caused by several factors:</p>
+                    <ul>
+                        <li>Slow internet connection</li>
+                        <li>Browser cache issues (try clearing cache and cookies)</li>
+                        <li>Too many browser tabs or applications running</li>
+                        <li>Outdated browser version</li>
+                        <li>High traffic on our servers (rare)</li>
+                    </ul>
+                    <p>Try refreshing the page (Ctrl+F5) or switching to an incognito/private browsing window.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Is there a TravelGenie mobile app?</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We're currently developing native mobile apps for iOS and Android:</p>
+                    <ul>
+                        <li>Beta testing will begin in Q2 2025</li>
+                        <li>Full launch planned for Q3 2025</li>
+                        <li>Meanwhile, our website is fully mobile-optimized</li>
+                        <li>You can add TravelGenie to your home screen as a web app</li>
+                    </ul>
+                    <p>Sign up for our newsletter to be notified when the app launches!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Support Section -->
+        <section class="contact-section">
+            <h2 class="contact-title">
+                <i class="fas fa-headset"></i>
+                Still Have Questions?
+            </h2>
+            <p class="contact-description">
+                Our support team is here to help you with any questions not covered in this FAQ. We typically respond within 24 hours.
+            </p>
+            <div class="contact-options">
+                <a href="contact-us.html" class="contact-btn">
+                    <i class="fas fa-envelope"></i> Email Support
+                </a>
+                <a href="#" class="contact-btn" onclick="startLiveChat()">
+                    <i class="fas fa-comments"></i> Live Chat
+                </a>
+                <a href="tel:1-800-TRAVEL-AI" class="contact-btn">
+                    <i class="fas fa-phone"></i> Call Us
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">
+            &copy; 2025 TravelGenie. All rights reserved. | 
+            <a href="about-us.html">About Us</a> | 
+            <a href="privacy-policy.html">Privacy Policy</a> | 
+            <a href="terms-of-service.html">Terms of Service</a>
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize search functionality
+            const searchInput = document.getElementById('faqSearch');
+            searchInput.addEventListener('input', handleSearch);
+
+            // Initialize category tabs
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const category = this.dataset.category;
+                    filterFAQs(category);
+                    
+                    // Update active tab
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Add entrance animations
+            const sections = document.querySelectorAll('.search-section, .faq-section, .contact-section');
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            console.log('❓ FAQ page loaded successfully!');
+        });
+
+        // FAQ toggle functionality
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.faq-icon');
+
+            // Close other open FAQs
+            document.querySelectorAll('.faq-answer.active').forEach(item => {
+                if (item !== answer) {
+                    item.classList.remove('active');
+                    item.previousElementSibling.querySelector('.faq-icon').classList.remove('rotated');
+                }
+            });
+
+            // Toggle current FAQ
+            answer.classList.toggle('active');
+            icon.classList.toggle('rotated');
+        }
+
+        // Search functionality
+        function handleSearch(e) {
+            const query = e.target.value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            if (query.length === 0) {
+                faqItems.forEach(item => {
+                    item.style.display = 'block';
+                    item.style.opacity = '1';
+                });
+                return;
+            }
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(query) || answer.includes(query)) {
+                    item.style.display = 'block';
+                    item.style.opacity = '1';
+                } else {
+                    item.style.opacity = '0.3';
+                }
+            });
+        }
+
+        // Filter FAQs by category
+        function filterFAQs(category) {
+            const sections = document.querySelectorAll('.faq-section');
+            
+            sections.forEach(section => {
+                if (category === 'all' || section.dataset.category === category) {
+                    section.style.display = 'block';
+                    setTimeout(() => {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    section.style.opacity = '0';
+                    section.style.transform = 'translateY(-20px)';
+                    setTimeout(() => {
+                        section.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        // Live chat functionality
+        function startLiveChat() {
+            alert('Live chat would open here. In a real implementation, this would connect you with our support team.');
+        }
+
+        // Add hover effects to FAQ items
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(5px)';
+            });
+            
+            question.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+    </script>
+</body>
+</html>

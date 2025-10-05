@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelGenie - AI-Powered Travel Assistant</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <i class="fas fa-plane"></i>
+          <span>TravelGenie</span>
+        </div>
+        <div class="nav-menu" id="navMenu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <div class="nav-auth" id="navAuth">
+            <a href="login.html" class="btn-secondary">Login</a>
+            <a href="register.html" class="btn-primary">Sign Up</a>
+          </div>
+        </div>
+        <div class="nav-toggle" id="navToggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+    <div class="hero-background">
+        <div class="hero-image"></div>
+        <div class="hero-overlay"></div>
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Your AI-Powered 
+                <span class="gradient-text">Travel Companion</span>
+            </h1>
+            <p class="hero-subtitle">
+                Plan amazing trips in minutes with personalized AI recommendations. 
+                From hidden gems to perfect itineraries - we've got you covered.
+            </p>
+            <div class="hero-stats" id="heroStats">
+                <div class="stat">
+        <span class="stat-number" id="happyTravelers">Loading...</span>
+        <span class="stat-label">Happy Travelers</span>
+    </div>
+    <div class="stat">
+        <span class="stat-number" id="destinations">Loading...</span>
+        <span class="stat-label">Destinations Explored</span>
+    </div>
+    <div class="stat">
+        <span class="stat-number" id="userRating">Loading...</span>
+        <span class="stat-label">User Rating</span>
+    </div>
+            </div>
+            <div class="hero-actions">
+                <a href="#travel-planner" class="btn-primary btn-large">
+                    <i class="fas fa-magic"></i>
+                    Start Planning Now
+                </a>
+            
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="container">
+        <h2 class="section-title">Why Choose TravelGenie?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3>AI-Powered Planning</h3>
+            <p>
+              Advanced AI creates personalized itineraries based on your
+              preferences, budget, and travel style.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-gem"></i>
+            </div>
+            <h3>Hidden Gems</h3>
+            <p>
+              Discover local secrets and off-the-beaten-path experiences that
+              only locals know about.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3>Instant Booking</h3>
+            <p>
+              Book hotels, flights, and activities directly through our
+              integrated booking partners.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-cloud-sun"></i>
+            </div>
+            <h3>Weather Integration</h3>
+            <p>
+              Real-time weather data helps optimize your itinerary for the best
+              possible experience.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>Mobile Optimized</h3>
+            <p>
+              Access your travel plans anywhere, anytime with our responsive
+              mobile-friendly design.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Secure & Private</h3>
+            <p>
+              Your personal data and travel plans are protected with
+              enterprise-grade security.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+      <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps-container">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Tell Us Your Preferences</h3>
+              <p>Share your destination, budget, interests, and travel style</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>AI Creates Your Plan</h3>
+              <p>
+                Our AI analyzes thousands of data points to craft your perfect
+                itinerary
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Book & Travel</h3>
+              <p>
+                Book directly through our partners and enjoy your perfectly
+                planned trip
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Travel Planner Section -->
+    <section id="travel-planner" class="travel-planner">
+      <div class="container">
+        <div class="planner-header">
+          <h2>Start Your Journey</h2>
+          <p>Tell us about your dream trip and let AI do the rest</p>
+        </div>
+
+        <form id="travelForm" class="travel-form">
+          <div class="form-section">
+            <h3><i class="fas fa-map-marker-alt"></i> Destination Details</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="destination">Where do you want to go?</label>
+                <input
+                  type="text"
+                  id="destination"
+                  name="destination"
+                  placeholder="e.g., Paris, Tokyo, New York"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="duration">How many days?</label>
+                <select id="duration" name="duration" required>
+                  <option value="">Select duration</option>
+                  <option value="3">3 days</option>
+                  <option value="5">5 days</option>
+                  <option value="7">1 week</option>
+                  <option value="10">10 days</option>
+                  <option value="14">2 weeks</option>
+                  <option value="21">3 weeks</option>
+                  <option value="30">1 month</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3><i class="fas fa-wallet"></i> Budget & Style</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="budget">Budget Range</label>
+                <select id="budget" name="budget" required>
+                  <option value="">Select budget</option>
+                  <option value="budget">Budget ($0 - $1,000)</option>
+                  <option value="mid-range">Mid-range ($1,000 - $3,000)</option>
+                  <option value="luxury">Luxury ($3,000+)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="travelType">Travel Style</label>
+                <select id="travelType" name="travelType" required>
+                  <option value="">Select style</option>
+                  <option value="solo">Solo Adventure</option>
+                  <option value="couple">Romantic Getaway</option>
+                  <option value="family">Family Fun</option>
+                  <option value="friends">Friends Trip</option>
+                  <option value="business">Business Travel</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3><i class="fas fa-heart"></i> Your Interests</h3>
+            <div class="interests-grid">
+              <label class="interest-item">
+                <input type="checkbox" name="interests[]" value="adventure" />
+                <span class="interest-card">
+                  <i class="fas fa-mountain"></i>
+                  <span>Adventure</span>
+                </span>
+              </label>
+              <label class="interest-item">
+                <input type="checkbox" name="interests[]" value="culture" />
+                <span class="interest-card">
+                  <i class="fas fa-landmark"></i>
+                  <span>Culture</span>
+                </span>
+              </label>
+              <label class="interest-item">
+                <input type="checkbox" name="interests[]" value="food" />
+                <span class="interest-card">
+                  <i class="fas fa-utensils"></i>
+                  <span>Food & Dining</span>
+                </span>
+              </label>
+              <label class="interest-item">
+                <input type="checkbox" name="interests[]" value="nature" />
+                <span class="interest-card">
+                  <i class="fas fa-leaf"></i>
+                  <span>Nature</span>
+                </span>
+              </label>
+              <label class="interest-item">
+                <input type="checkbox" name="interests[]" value="history" />
+                <span class="interest-card">
+                  <i class="fas fa-university"></i>
+                  <span>History</span>
+                </span>
+              </label>
+              <label class="interest-item">
+                <input type="checkbox" name="interests[]" value="nightlife" />
+                <span class="interest-card">
+                  <i class="fas fa-cocktail"></i>
+                  <span>Nightlife</span>
+                </span>
+              </label>
+              <label class="interest-item">
+                <input type="checkbox" name="interests[]" value="shopping" />
+                <span class="interest-card">
+                  <i class="fas fa-shopping-bag"></i>
+                  <span>Shopping</span>
+                </span>
+              </label>
+              <label class="interest-item">
+                <input type="checkbox" name="interests[]" value="wellness" />
+                <span class="interest-card">
+                  <i class="fas fa-spa"></i>
+                  <span>Wellness</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-button">
+            <i class="fas fa-magic"></i>
+            <span>Generate My Perfect Trip</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Loading Section -->
+    <section id="loadingSection" class="loading-section" style="display: none">
+      <div class="loading-container">
+        <div class="loading-animation">
+          <div class="plane-icon">
+            <i class="fas fa-plane"></i>
+          </div>
+          <div class="loading-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <h3>Creating Your Perfect Itinerary</h3>
+        <p>
+          Our AI is analyzing thousands of options to craft your ideal trip...
+        </p>
+        <div class="loading-steps">
+          <div class="loading-step active">Analyzing preferences</div>
+          <div class="loading-step">Finding best options</div>
+          <div class="loading-step">Creating itinerary</div>
+          <div class="loading-step">Adding local insights</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="resultsSection" class="results-section" style="display: none">
+      <div class="container">
+        <div class="results-header">
+          <h2>Your Personalized Travel Plan</h2>
+          <div class="results-actions">
+            <button class="btn-save" id="savePlanBtn">
+              <i class="fas fa-save"></i> Save Plan
+            </button>
+            <button class="btn-share" id="sharePlanBtn">
+              <i class="fas fa-share"></i> Share
+            </button>
+          </div>
+        </div>
+        <div id="travelPlan" class="travel-plan-container">
+          <!-- AI-generated content will be inserted here -->
+        </div>
+        <div class="booking-section">
+          <h3><i class="fas fa-ticket-alt"></i> Ready to Book?</h3>
+          <div class="booking-partners">
+            <button
+              class="booking-btn"
+              data-provider="booking_com"
+              data-type="hotel"
+            >
+              <img
+                src="https://logos-world.net/wp-content/uploads/2021/08/Booking-Logo.png"
+                alt="Booking.com"
+              />
+              <span>Hotels</span>
+            </button>
+            <button
+              class="booking-btn"
+              data-provider="expedia"
+              data-type="package"
+            >
+              <img
+                src="https://logos-world.net/wp-content/uploads/2020/11/Expedia-Logo.png"
+                alt="Expedia"
+              />
+              <span>Packages</span>
+            </button>
+            <button
+              class="booking-btn"
+              data-provider="kayak_flights"
+              data-type="flight"
+            >
+              <img
+                src="https://logos-world.net/wp-content/uploads/2020/11/Kayak-Logo.png"
+                alt="Kayak"
+              />
+              <span>Flights</span>
+            </button>
+            <button
+              class="booking-btn"
+              data-provider="airbnb"
+              data-type="accommodation"
+            >
+              <img
+                src="https://logos-world.net/wp-content/uploads/2020/10/Airbnb-Logo.png"
+                alt="Airbnb"
+              />
+              <span>Stays</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+    <div class="container">
+        <div class="planner-header">
+            <h2>What Our Travelers Say</h2>
+            <p>Real experiences from travelers who trusted TravelGenie for their journeys</p>
+        </div>
+        
+        <!-- Loading State -->
+        <div id="feedbackLoading" class="feedback-loading">
+            <div class="loading-spinner"></div>
+            <p>Loading testimonials...</p>
+        </div>
+        
+        <!-- Professional Feedback Grid -->
+        <div class="testimonials-grid" id="testimonialsGrid" style="display: none;">
+            <!-- Real testimonials will be loaded here -->
+        </div>
+        
+        <!-- No Feedback State -->
+        <div id="noFeedback" class="no-feedback" style="display: none;">
+            <div class="no-feedback-icon">💬</div>
+            <h3>Share Your Experience</h3>
+            <p>Be the first to tell others about your amazing travel experience with TravelGenie</p>
+            <a href="feedback.html" class="btn-primary">Write a Review</a>
+        </div>
+        
+        
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-brand">
+              <i class="fas fa-plane"></i>
+              <span>TravelGenie</span>
+            </div>
+            <p>
+              AI-powered travel planning that creates unforgettable experiences
+              tailored just for you.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Features</h4>
+            <ul>
+              <li><a href="#travel-planner">AI Trip Planning</a></li>
+              <li><a href="https://www.makemytrip.com/hotels/">Hotel Booking</a></li>
+              <li><a href="https://www.makemytrip.com/flights/">Flight Search</a></li>
+              <li><a href="#">Local Experiences</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="help-center.html">Help Center</a></li>
+              <li><a href="contact-us.html">Contact Us</a></li>
+              <li><a href="travel-tips.html">Travel Tips</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about-us.html">About Us</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="terms-of-service.html">Terms of Service</a></li>
+              <li><a href="careers.html">Careers</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 TravelGenie. All rights reserved. Powered by AI.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+      <script>
+// TravelGenie - Anonymous Feedback Loader
+console.log('🚀 TravelGenie loading...');
+
+window.addEventListener('load', function() {
+    console.log('📱 Page fully loaded - initializing data...');
+    
+    // Load both stats and feedback
+    loadHeroStats();
+    loadAnonymousTestimonials();
+});
+
+// Function to load hero section stats
+function loadHeroStats() {
+    console.log('📊 Loading hero stats...');
+    
+    const happy = document.getElementById('happyTravelers');
+    const dest = document.getElementById('destinations');
+    const rating = document.getElementById('userRating');
+    
+    if (!happy || !dest || !rating) {
+        console.error('❌ Stats elements not found!');
+        return;
+    }
+    
+    // Set loading state
+    happy.textContent = 'Loading...';
+    dest.textContent = 'Loading...';
+    
+    // Fetch stats data
+    fetch('php/simple_stats.php?' + Date.now())
+        .then(response => response.text())
+        .then(text => {
+            try {
+                const data = JSON.parse(text);
+                if (data.success && data.data) {
+                    happy.textContent = data.data.happy_travelers;
+                    dest.textContent = data.data.destinations;
+                    rating.textContent = data.data.user_rating + '★';
+                    console.log('✅ SUCCESS: Hero stats updated!');
+                } else {
+                    setFallbackStats();
+                }
+            } catch (e) {
+                console.error('❌ Stats error:', e);
+                setFallbackStats();
+            }
+        })
+        .catch(error => {
+            console.error('❌ Stats fetch error:', error);
+            setFallbackStats();
+        });
+}
+
+// Function to load anonymous testimonials
+function loadAnonymousTestimonials() {
+    console.log('💬 Loading anonymous testimonials...');
+    
+    const loadingElement = document.getElementById('feedbackLoading');
+    const gridElement = document.getElementById('testimonialsGrid');
+    const noFeedbackElement = document.getElementById('noFeedback');
+    
+    // Show loading state
+    if (loadingElement) loadingElement.style.display = 'block';
+    if (gridElement) gridElement.style.display = 'none';
+    if (noFeedbackElement) noFeedbackElement.style.display = 'none';
+    
+    // Fetch feedback data
+    fetch('php/latest_feedback.php?' + Date.now())
+        .then(response => response.text())
+        .then(text => {
+            try {
+                const data = JSON.parse(text);
+                console.log('💬 Feedback data loaded:', data);
+                
+                if (data.success && data.data && data.data.length > 0) {
+                    displayAnonymousFeedback(data.data);
+                } else {
+                    showNoFeedback();
+                }
+                
+            } catch (e) {
+                console.error('❌ Feedback error:', e);
+                showNoFeedback();
+            }
+        })
+        .catch(error => {
+            console.error('❌ Feedback fetch error:', error);
+            showNoFeedback();
+        });
+}
+
+// Display anonymous feedback
+function displayAnonymousFeedback(feedbackList) {
+    const gridElement = document.getElementById('testimonialsGrid');
+    const loadingElement = document.getElementById('feedbackLoading');
+    const noFeedbackElement = document.getElementById('noFeedback');
+    
+    // Hide loading and no-feedback
+    if (loadingElement) loadingElement.style.display = 'none';
+    if (noFeedbackElement) noFeedbackElement.style.display = 'none';
+    
+    // Show and populate grid with anonymous data
+    if (gridElement) {
+        gridElement.style.display = 'grid';
+        gridElement.innerHTML = feedbackList.map((feedback, index) => {
+            // Create anonymous names
+            const anonymousNames = [
+                'Travel Enthusiast',
+                'Adventure Seeker', 
+                'Vacation Planner',
+                'Globe Trotter',
+                'Journey Explorer',
+                'Trip Designer'
+            ];
+            
+            const anonymousName = anonymousNames[index % anonymousNames.length];
+            
+            return `
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">${feedback.feedback_text}</p>
+                    </div>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4 class="author-name">${anonymousName}</h4>
+                                ${feedback.travel_destination ? `<span class="author-destination">${feedback.travel_destination}</span>` : '<span class="author-destination">Verified Traveler</span>'}
+                            </div>
+                            <div class="testimonial-rating">
+                                <span class="stars">${'★'.repeat(feedback.rating)}${'☆'.repeat(5-feedback.rating)}</span>
+                                <span class="rating-number">${feedback.rating}/5</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-date">
+                            ${formatDate(feedback.created_at)}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        
+        console.log('✅ SUCCESS: Anonymous testimonials displayed!');
+        updateTestimonialStats(feedbackList);
+    }
+}
+
+// Helper functions
+function setFallbackStats() {
+    const happy = document.getElementById('happyTravelers');
+    const dest = document.getElementById('destinations');
+    const rating = document.getElementById('userRating');
+    
+    if (happy) happy.textContent = '2';
+    if (dest) dest.textContent = '4';
+    if (rating) rating.textContent = '4.1★';
+}
+
+function showNoFeedback() {
+    const loadingElement = document.getElementById('feedbackLoading');
+    const gridElement = document.getElementById('testimonialsGrid');
+    const noFeedbackElement = document.getElementById('noFeedback');
+    
+    if (loadingElement) loadingElement.style.display = 'none';
+    if (gridElement) gridElement.style.display = 'none';
+    if (noFeedbackElement) noFeedbackElement.style.display = 'block';
+}
+
+function updateTestimonialStats(testimonials) {
+    const totalReviews = document.getElementById('totalReviews');
+    const averageRating = document.getElementById('averageRating');
+    
+    if (totalReviews) {
+        totalReviews.textContent = testimonials.length;
+    }
+    
+    if (averageRating && testimonials.length > 0) {
+        const avgRating = testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length;
+        averageRating.textContent = avgRating.toFixed(1) + '★';
+    }
+}
+
+function formatDate(dateString) {
+    return new Date(dateString).toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long'
+    });
+}
+
+console.log('✅ TravelGenie JavaScript loaded with privacy protection!');
+</script>
+  </body>
+</html>

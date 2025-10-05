@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - TravelGenie</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar dashboard-nav">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <i class="fas fa-plane"></i>
+          <span>TravelGenie</span>
+        </div>
+        <div class="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="#" class="nav-link active">Dashboard</a>
+          <a href="feedback.html" class="nav-link active">Feedback</a>
+          <div class="nav-auth" id="navAuth">
+            <div class="user-menu">
+              <button class="user-menu-toggle" id="userMenuToggle">
+                
+                <span id="userName">Loading...</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="user-menu-dropdown" id="userMenuDropdown">
+                <a href="#" class="menu-item" onclick="logout()">
+                  <i class="fas fa-sign-out-alt"></i>
+                  Logout
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <main class="dashboard-main">
+      <div class="container">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+          <div class="header-content">
+            <h1>Welcome back, <span id="userGreeting">Traveler</span>!</h1>
+            <p>Ready to plan your next adventure?</p>
+          </div>
+          <div class="header-actions">
+            <a href="index.html#travel-planner" class="btn-primary">
+              <i class="fas fa-plus"></i>
+              Create New Trip
+            </a>
+          </div>
+        </div>
+
+        <!-- Dashboard Stats -->
+        <div class="dashboard-stats">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <div class="stat-content">
+              <h3 id="totalTrips">0</h3>
+              <p>Total Trips Planned</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-globe-americas"></i>
+            </div>
+            <div class="stat-content">
+              <h3 id="countriesVisited">0</h3>
+              <p>Place to Visit</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="stat-content">
+              <h3 id="upcomingTrips">0</h3>
+              <p>Upcoming Trips</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+          <h2>Quick Actions</h2>
+          <div class="action-cards">
+            <div
+              class="action-card"
+              onclick="location.href='index.html#travel-planner'"
+            >
+              <i class="fas fa-magic"></i>
+              <h3>Plan New Trip</h3>
+              <p>Let AI create your perfect itinerary</p>
+            </div>
+            <div class="action-card" onclick="showRandomDestination()">
+              <i class="fas fa-dice"></i>
+              <h3>Surprise Me</h3>
+              <p>Get a random destination suggestion</p>
+            </div>
+            <div class="action-card" onclick="showTravelTips()">
+              <i class="fas fa-lightbulb"></i>
+              <h3>Travel Tips</h3>
+              <p>Expert advice for your journeys</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Travel Plans -->
+        <div class="travel-plans-section">
+          <div class="section-header">
+            <h2>Your Travel Plans</h2>
+            
+          </div>
+
+          <div class="travel-plans-grid" id="travelPlansGrid">
+            <!-- Plans will be loaded here -->
+            <div class="empty-state">
+              <i class="fas fa-map"></i>
+              <h3>No Travel Plans Yet</h3>
+              <p>Start planning your first amazing trip with AI assistance!</p>
+              <a href="index.html#travel-planner" class="btn-primary">
+                <i class="fas fa-plus"></i>
+                Create Your First Trip
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="recent-activity">
+          <h2>Recent Activity</h2>
+          <div class="activity-list" id="activityList">
+            <!-- Activity items will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modals -->
+    <div id="planModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modalTitle">Trip Details</h2>
+          <button class="modal-close" onclick="closeModal('planModal')">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body" id="modalBody">
+          <!-- Plan details will be loaded here -->
+        </div>
+        <div class="modal-footer">
+          <button class="btn-secondary" onclick="closeModal('planModal')">
+            Close
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="js/auth.js?v=20250910091330"></script>
+    <script src="js/dashboard.js?v=20250910091330"></script>
+  </body>
+</html>
