@@ -1,8 +1,8 @@
-# TravelGenie - AI-Powered Travel Assistant Pro 2.0
+# Travel Genie - AI-Powered Travel Assistant Pro 2.0
 
 <div align="center">
 
-![TravelGenie Logo](https://img.shields.io/badge/TravelGenie-AI%20Travel%20Assistant-blue?style=for-the-badge)
+![Travel Genie Logo](https://img.shields.io/badge/Travel%20Genie-AI%20Travel%20Assistant-blue?style=for-the-badge)
 
 **Your intelligent travel companion that creates personalized itineraries using AI**
 
@@ -34,7 +34,7 @@
 
 ## 🎯 Overview
 
-**TravelGenie** is a comprehensive AI-powered travel planning platform that helps users create personalized travel itineraries in minutes. The application leverages Google's Gemini AI to generate detailed travel plans based on user preferences, budget, interests, and travel style.
+**Travel Genie** is a comprehensive AI-powered travel planning platform that helps users create personalized travel itineraries in minutes. The application leverages Google's Gemini AI to generate detailed travel plans based on user preferences, budget, interests, and travel style.
 
 ### Key Highlights
 
@@ -129,7 +129,7 @@
 ## 📁 Project Structure
 
 ```
-travel-assistant-pro2.0/
+travel-genie/
 │
 ├── 📄 index.html                 # Main landing page
 ├── 📄 login.html                  # User login page
@@ -202,7 +202,7 @@ travel-assistant-pro2.0/
 ```bash
 # If using Git
 git clone <repository-url>
-cd travel-assistant-pro2.0
+cd travel-genie
 
 # Or download and extract the ZIP file
 ```
@@ -212,8 +212,8 @@ cd travel-assistant-pro2.0
 #### Apache Configuration
 
 1. Place the project in your web server directory:
-   - **Windows**: `C:\xampp\htdocs\travel-assistant-pro2.0\`
-   - **Linux/Mac**: `/var/www/html/travel-assistant-pro2.0/`
+   - **Windows**: `C:\xampp\htdocs\travel-genie\`
+   - **Linux/Mac**: `/var/www/html/travel-genie/`
 
 2. Ensure `mod_rewrite` is enabled (if using URL rewriting)
 
@@ -222,8 +222,8 @@ cd travel-assistant-pro2.0
 ```apache
 <VirtualHost *:80>
     ServerName travelgenie.local
-    DocumentRoot "C:/xampp/htdocs/travel-assistant-pro2.0"
-    <Directory "C:/xampp/htdocs/travel-assistant-pro2.0">
+    DocumentRoot "C:/xampp/htdocs/travel-genie"
+    <Directory "C:/xampp/htdocs/travel-genie">
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
@@ -237,7 +237,7 @@ cd travel-assistant-pro2.0
 server {
     listen 80;
     server_name travelgenie.local;
-    root /var/www/html/travel-assistant-pro2.0;
+    root /var/www/html/travel-genie;
     index index.html index.php;
 
     location / {
@@ -317,8 +317,8 @@ chmod 644 php/*.php
 ### Step 6: Test Installation
 
 1. Start your web server and MySQL
-2. Open browser: `http://localhost/travel-assistant-pro2.0/`
-3. You should see the TravelGenie homepage
+2. Open browser: `http://localhost/travel-genie/`
+3. You should see the Travel Genie homepage
 4. Try registering a new account
 5. Test creating a travel plan
 
@@ -916,9 +916,9 @@ If you find this project useful, please consider giving it a star ⭐!
 
 <div align="center">
 
-**Made with ❤️ by the TravelGenie Team**
+**Made with ❤️ by the Travel Genie Team**
 
-[⬆ Back to Top](#travelgenie---ai-powered-travel-assistant-pro-20)
+[⬆ Back to Top](#travel-genie---ai-powered-travel-assistant-pro-20)
 
 </div>
 
