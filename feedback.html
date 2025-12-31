@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Your Experience - TravelGenie</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Keep Original UI Design */
+        .feedback-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 2rem 0;
+        }
+        
+        .feedback-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+        }
+        
+        .feedback-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .feedback-form {
+            padding: 3rem 2rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input[type="text"], 
+        input[type="email"], 
+        select, 
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .rating-input {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .rating-input input[type="radio"] {
+            display: none;
+        }
+        
+        .rating-input label {
+            font-size: 2rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .rating-input input[type="radio"]:checked ~ label,
+        .rating-input label:hover,
+        .rating-input label:hover ~ label {
+            color: #ffc107;
+        }
+        
+        .rating-input {
+            flex-direction: row-reverse;
+            justify-content: center;
+        }
+        
+        .rating-input label:hover,
+        .rating-input input[type="radio"]:checked ~ label {
+            color: #ffc107;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-primary:disabled {
+            background: #a5b4fc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .error {
+            border-color: #ef4444 !important;
+        }
+        
+        .field-error {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            z-index: 10000;
+            color: white;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification-success {
+            background: #10b981;
+        }
+        
+        .notification-error {
+            background: #ef4444;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="feedback-page">
+        <div class="container">
+            <div class="feedback-container">
+                <div class="feedback-header">
+                    <h1><i class="fas fa-heart"></i> Share Your Travel Experience</h1>
+                    <p>Help other travelers by sharing your experience with TravelGenie</p>
+                </div>
+                
+                <form id="feedbackForm" class="feedback-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="destination">Travel Destination</label>
+                        <input type="text" id="destination" name="destination" placeholder="e.g., Paris, France">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Overall Rating *</label>
+                        <div class="rating-input">
+                            <input type="radio" name="rating" id="star5" value="5" required>
+                            <label for="star5"><i class="fas fa-star"></i></label>
+                            
+                            <input type="radio" name="rating" id="star4" value="4">
+                            <label for="star4"><i class="fas fa-star"></i></label>
+                            
+                            <input type="radio" name="rating" id="star3" value="3">
+                            <label for="star3"><i class="fas fa-star"></i></label>
+                            
+                            <input type="radio" name="rating" id="star2" value="2">
+                            <label for="star2"><i class="fas fa-star"></i></label>
+                            
+                            <input type="radio" name="rating" id="star1" value="1">
+                            <label for="star1"><i class="fas fa-star"></i></label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="feedback">Your Experience *</label>
+                        <textarea id="feedback" name="feedback" rows="5" required 
+                                  placeholder="Tell us about your experience using TravelGenie. What did you love? How did it help your trip?"></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" onclick="window.location.href='index.html'" class="btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Back to Home
+                        </button>
+                        <button type="submit" class="btn-primary" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Submit Feedback
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Working Feedback Form JavaScript
+        document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            console.log('🚀 Submitting feedback form...');
+            
+            // Clear previous errors
+            clearAllErrors();
+            
+            // Collect form data
+            const formData = new FormData(e.target);
+            const feedbackData = {
+                name: formData.get('name').trim(),
+                email: formData.get('email').trim(),
+                destination: formData.get('destination').trim(),
+                rating: parseInt(formData.get('rating')),
+                feedback: formData.get('feedback').trim()
+            };
+            
+            console.log('📝 Form data:', feedbackData);
+            
+            // Validate form
+            let isValid = validateForm(feedbackData);
+            if (!isValid) {
+                showNotification('Please fix the errors above', 'error');
+                return;
+            }
+            
+            // Submit form
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            
+            try {
+                console.log('📡 Sending to server...');
+                
+                const response = await fetch('php/submit_feedback.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(feedbackData)
+                });
+                
+                console.log('📡 Response status:', response.status);
+                
+                const result = await response.json();
+                console.log('📊 Server response:', result);
+                
+                if (result.success) {
+                    showNotification('Thank you for your feedback! 🎉', 'success');
+                    e.target.reset();
+                    
+                    // Redirect after success
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 2000);
+                } else {
+                    showNotification('Error: ' + result.error, 'error');
+                }
+                
+            } catch (error) {
+                console.error('❌ Submit error:', error);
+                showNotification('Failed to submit feedback. Please try again.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
+        });
+        
+        function validateForm(data) {
+            let isValid = true;
+            
+            if (!data.name) {
+                showFieldError('name', 'Please enter your name');
+                isValid = false;
+            }
+            
+            if (!data.email || !validateEmail(data.email)) {
+                showFieldError('email', 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            if (!data.rating) {
+                showFieldError('star1', 'Please select a rating');
+                isValid = false;
+            }
+            
+            if (!data.feedback) {
+                showFieldError('feedback', 'Please share your experience');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+        
+        function showFieldError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            field.classList.add('error');
+            
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'field-error';
+            errorDiv.textContent = message;
+            field.parentNode.appendChild(errorDiv);
+        }
+        
+        function clearAllErrors() {
+            document.querySelectorAll('.field-error').forEach(e => e.remove());
+            document.querySelectorAll('.error').forEach(e => e.classList.remove('error'));
+        }
+        
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+        
+        function showNotification(message, type = 'info') {
+            // Remove existing notifications
+            document.querySelectorAll('.notification').forEach(n => n.remove());
+            
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => notification.classList.add('show'), 100);
+            
+            // Hide notification after 4 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => notification.remove(), 300);
+            }, 4000);
+        }
+        
+        console.log('✅ Feedback form ready!');
+    </script>
+</body>
+</html>
